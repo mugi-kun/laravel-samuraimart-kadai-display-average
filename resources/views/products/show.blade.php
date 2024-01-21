@@ -81,6 +81,11 @@
     <div class="offset-1 col-11">
       <hr class="w-100">
       <h3 class="float-left">カスタマーレビュー</h3>
+      @if ($product->reviews()->exists())
+        <span class="samuraimart-star-rating" data-rate="{{ round($product->reviews->avg('score') * 2) / 2 }}"> </span>
+        {{ round($product->reviews->avg('score'),1) }} 
+      @endif 
+
     </div>
 
     <div class="offset-1 col-10">
@@ -88,7 +93,6 @@
         @foreach($reviews as $review)
         <div class="offset-md-5 col-md-5">
           <h3 class="review-score-color">{{ str_repeat('★', $review->score) }}</h3>
-          <p class="h3">{{$review->title}}</p>
           <p class="h3">{{$review->content}}</p>
           <label>{{$review->created_at}} {{$review->user->name}}</label>
         </div>

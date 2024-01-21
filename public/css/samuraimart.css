@@ -249,6 +249,6 @@ th, td {
   width: 10%;
 }
 
-.ssamuraimart-tar-rating[data-rate="0"]::after {
+.ssamuraimart-star-rating[data-rate="0"]::after {
   width: 0%;
 }
